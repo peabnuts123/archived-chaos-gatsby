@@ -1,0 +1,53 @@
+{
+  "name": "archived-chaos-gatsby",
+  "private": true,
+  "description": "A portfolio website and blog",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "lint": "eslint src/ *.js --ext '.js,.ts,.tsx,.jsx' && stylelint src/*"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "gatsby": "^2.18.11",
+    "gatsby-link": "^2.2.27",
+    "gatsby-plugin-sitemap": "^2.2.24",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@nfront/global-styles": "^1.2.1",
+    "@types/classnames": "^2.2.9",
+    "@types/react-helmet": "^5.0.14",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0",
+    "gatsby-plugin-global-styles": "^1.0.17",
+    "gatsby-plugin-layout": "^1.1.15",
+    "gatsby-plugin-react-helmet": "^3.1.18",
+    "gatsby-plugin-sass": "^2.1.23",
+    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-plugin-typescript": "^2.1.19",
+    "gatsby-remark-images": "^3.2.1",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-transformer-remark": "^2.7.1",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.1",
+    "normalize.css": "^8.0.1",
+    "react-helmet": "^5.2.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.13.0",
+    "typescript": "^3.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:peabnuts123/archived-chaos-gatsby.git"
+  }
+}
