@@ -6,15 +6,16 @@ date: "2020-03-30"
 tags: ["Game Development"]
 ---
 
-In my second year at University (2011) studying Computer Science, I decided I’d start making a game. I’ve always intended to get into game design/development so I figured now that I was actually learning to program, I should put these skills into practice. Here is the very first screenshot I took of it:
-
-![Player character standing on a simple box](player_standing_on_box.png)
-
-Even at this point it was already clear that collision handling was relevant. I actually wrote some code for this to allow the player to move and jump around on this rectangle. However, the difference between handling the collisions of a player with a fully-developed level and one constant sized rectangle is colossal.
-
-At first, Collision Handling and Collision Detection don’t seem like different things. I know certainly going into this project that my own reasoning was that as long as the player and everything in the level was represented by a rectangle, it should be fairly trivial to detect when these shapes are intersecting, especially when the engine I was using (as well as Java itself) featured a Rectangle.intersects() method for my convenience.
-
-That’s the trap.
+[[snippet]]
+| In my second year at University (2011) studying Computer Science, I decided I’d start making a game. I’ve always intended to get into game design/development so I figured now that I was actually learning to program, I should put these skills into practice. Here is the very first screenshot I took of it:
+|
+| ![Player character standing on a simple box](player_standing_on_box.png)
+|
+| Even at this point it was already clear that collision handling was relevant. I actually wrote some code for this to allow the player to move and jump around on this rectangle. However, the difference between handling the collisions of a player with a fully-developed level and one constant sized rectangle is colossal.
+|
+| At first, Collision  Handling and Collision Detection don’t seem like different things. I know certainly going into this project that my own reasoning was that as long as the player and everything in the level was represented by a rectangle, it should be fairly trivial to detect when these shapes are intersecting, especially when the engine I was using (as well as Java itself) featured a Rectangle.intersects() method for my convenience.
+|
+| That’s the trap.
 
 It’s not until you sit down to actually develop this interaction that you have the fatal conversation with yourself: “Okay, so if the rectangles intersect then… they should… actually, I don’t know what they should do.”
 It’s that moment you learn the difference between Collision Detection and Collision Handling.

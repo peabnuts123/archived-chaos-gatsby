@@ -6,14 +6,16 @@ exports.createPages = async ({ graphql, actions }) => {
   // Query for markdown files
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+      allFile(filter: {sourceInstanceName: {eq: "content-posts"}, childMarkdownRemark: {id: {ne: null}}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
         nodes {
-          id
-          frontmatter {
-            url
-            date
+          childMarkdownRemark {
+            id
+            frontmatter {
+              url
+              date
+            }
+            fileAbsolutePath
           }
-          fileAbsolutePath
         }
       }
     }
@@ -28,19 +30,21 @@ exports.createPages = async ({ graphql, actions }) => {
   const PageComponent = path.resolve('./src/templates/page.tsx');
 
 
-  const blogPosts = result.data.allMarkdownRemark.nodes || [];
-  blogPosts.forEach((blogPost) => {
-    // Call Gatsby's helper action `createPage` to register each page in gatsby's pipeline
-    actions.createPage({
-      path: `${blogPost.frontmatter.date}-${blogPost.frontmatter.url}`,
-      component: PageComponent,
+  const blogPosts = result.data.allFile.nodes;
+  blogPosts
+    .map((blogPost) => blogPost.childMarkdownRemark)
+    .forEach((blogPost) => {
+      // Call Gatsby's helper action `createPage` to register each page in gatsby's pipeline
+      actions.createPage({
+        path: `${blogPost.frontmatter.date}-${blogPost.frontmatter.url}`,
+        component: PageComponent,
 
-      // context is passed into the pageQuery as params
-      context: {
-        fileAbsolutePath: blogPost.fileAbsolutePath,
-      },
+        // context is passed into the pageQuery as params
+        context: {
+          fileAbsolutePath: blogPost.fileAbsolutePath,
+        },
+      });
     });
-  });
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
